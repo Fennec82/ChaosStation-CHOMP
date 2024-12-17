@@ -52,7 +52,7 @@
 	icon_state = "dragonfly"
 	color_blend_mode = ICON_MULTIPLY
 
- /datum/sprite_accessory/wing/citheroniamoth
+/datum/sprite_accessory/wing/citheroniamoth
 	name = "citheronia wings"
 	desc = ""
 	icon_state = "citheronia_wings"
@@ -320,7 +320,7 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/wing/kara //SatinIsle Fluff Item 
+/datum/sprite_accessory/wing/kara //SatinIsle Fluff Item
 	name = "Pterokara wings"
 	desc = ""
 	icon = 'icons/mob/vore/wings_vr.dmi'
