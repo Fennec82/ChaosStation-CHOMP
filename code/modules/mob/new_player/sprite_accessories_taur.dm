@@ -1118,7 +1118,7 @@
 
 	msg_owner_grab_fail = "You step down onto %prey with one of your vines, forcing them onto the ground!"
 	msg_prey_grab_fail = "%owner steps down onto you with one of their vines, squishing you and forcing you onto the ground!"
-*/// CHOMPRemove End
+// CHOMPRemove End
 /datum/sprite_accessory/tail/taur/redpanda
 	name = "Red Panda (Taur)"
 	icon_state = "redpanda"
