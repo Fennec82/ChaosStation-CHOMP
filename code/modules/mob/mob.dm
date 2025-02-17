@@ -1,4 +1,5 @@
 /mob/Destroy()//This makes sure that mobs withGLOB.clients/keys are not just deleted from the game.
+	SSmobs.currentrun -= src
 	mob_list -= src
 	dead_mob_list -= src
 	living_mob_list -= src
@@ -12,10 +13,10 @@
 		client.screen = list()
 	if(mind && mind.current == src)
 		spellremove(src)
-	if(!istype(src,/mob/observer)) //CHOMPEdit
-		ghostize() //CHOMPEdit
-	//ChompEDIT start - fix hard qdels
-	QDEL_NULL(soulgem) //CHOMPAdd
+	if(!istype(src,/mob/observer))
+		ghostize()
+	QDEL_NULL(soulgem) // CHOMPAdd Soulcatcher
+	QDEL_NULL(dna)
 	QDEL_NULL(plane_holder)
 	QDEL_NULL(hud_used)
 	for(var/key in alerts) //clear out alerts
@@ -23,6 +24,17 @@
 	if(pulling)
 		stop_pulling() //TG does this on atom/movable but our stop_pulling proc is here so whatever
 
+	if(ability_master)
+		QDEL_NULL(ability_master)
+
+	if(vore_organs)
+		QDEL_NULL_LIST(vore_organs)
+	if(vorePanel)
+		QDEL_NULL(vorePanel)
+
+	for(var/mob/observer/dead/M in following_mobs)
+		M.stop_following()
+	following_mobs = null
 	previewing_belly = null // from code/modules/vore/eating/mob_ch.dm
 	vore_selected = null // from code/modules/vore/eating/mob_vr
 	focus = null
@@ -36,6 +48,7 @@
 	. = ..()
 	update_client_z(null)
 	//return QDEL_HINT_HARDDEL_NOW
+
 
 /mob/proc/remove_screen_obj_references()
 	hands = null
@@ -53,7 +66,7 @@
 	spell_masters = null
 	zone_sel = null
 
-/mob/Initialize()
+/mob/Initialize(mapload)
 	mob_list += src
 	if(stat == DEAD)
 		dead_mob_list += src

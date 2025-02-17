@@ -185,7 +185,7 @@
 	var/vore_icons_cache = null // null by default. Going from ON to OFF should store vore_icons val here, OFF to ON reset as null
 
 
-/mob/living/simple_mob/Initialize()
+/mob/living/simple_mob/Initialize(mapload)
 	remove_verb(src, /mob/verb/observe)
 	health = maxHealth
 
@@ -212,7 +212,7 @@
 	if(CONFIG_GET(flag/allow_simple_mob_recolor))
 		add_verb(src, /mob/living/simple_mob/proc/ColorMate)
 
-	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SHOE, 1, -6) // CHOMPEdit - Giving them all shoe footsteps FOR NOW until I go through all of them and give appropiate ones
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SHOE, 1, -6) // Need to go through all of the mobs to give them proper footsteps...
 
 	return ..()
 

@@ -303,7 +303,9 @@
 
 /datum/sprite_accessory/tail/taur/naga/alt_3c
 	name = "Naga alt style tri-color (Taur)"
-	suit_sprites = 'icons/mob/taursuits_naga.dmi' //TODO: PORT CHOMPS NAGA_ALT AND MAKE THESE NAGA_ALT.
+	suit_sprites = 'icons/mob/taursuits_naga_alt_ch.dmi' //TODO: PORT CHOMPS NAGA_ALT AND MAKE THESE NAGA_ALT. //CHOMPStation Edit
+	vore_tail_sprite_variant = "Naga3Piece" //CHOMPStation Add
+	fullness_icons = 1 //CHOMPStation Add
 	icon_state = "altnaga_s"
 	extra_overlay = "altnaga_markings"
 	extra_overlay2 = "altnaga_stripes"
@@ -1312,7 +1314,9 @@
 	icon_loaf = 'icons/mob/vore/taurs_loaf.dmi' //This file needs to be nuked during the removal of 'taurs_ch_loaf.dmi' into the normal loaf file.
 	loaf_offset = 5
 
-/datum/sprite_accessory/tail/taur/lizard/fat/spotty
+
+
+/datum/sprite_accessory/tail/taur/lizard/spotty_fat
 	name = "Fat Spotted Lizard (Taur, Tricolor)"
 	icon_state = "fatspottedlizard_s"
 	extra_overlay = "fatspottedlizard_markings"
