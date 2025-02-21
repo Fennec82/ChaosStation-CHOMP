@@ -3,12 +3,12 @@
 // All whitelisted dogborg sprites go here.
 
 /datum/robot_sprite/fluff
-	is_whitelisted = TRUE
+	is_whitelisted = FALSE //Chaosstation change - Ww ban Cke restricted content. Such must be enabled for everyone
 
 // A
 
 /datum/robot_sprite/fluff/argonne
-	name = CUSTOM_BORGSPRITE("RUSS")
+//	name = CUSTOM_BORGSPRITE("RUSS")
 
 	sprite_icon = 'icons/mob/robot/fluff_wide.dmi'
 
@@ -68,7 +68,7 @@
 // J
 
 /datum/robot_sprite/fluff/jademanique
-	name = CUSTOM_BORGSPRITE("B.A.U-Kingside")
+//	name = CUSTOM_BORGSPRITE("B.A.U-Kingside")
 	module_type = "Security"
 
 	sprite_icon = 'icons/mob/robot/fluff_wide.dmi'
@@ -115,8 +115,8 @@
 
 //Somememeguy's custom catborg.
 /datum/robot_sprite/fluff/matica
-	name = CUSTOM_BORGSPRITE("Matica Catborg")
-	whitelist_ckey = "somememeguy"
+//	name = CUSTOM_BORGSPRITE("Matica Catborg")
+//	whitelist_ckey = "somememeguy"
 	sprite_icon_state = "chonker"
 	sprite_hud_icon_state = "chonker"
 	sprite_icon = 'icons/mob/robot/catborgs/custom/catborg_matica_custom.dmi'
