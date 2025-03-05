@@ -129,6 +129,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/delbook,
 	/client/proc/toggle_spawning_with_recolour,
 	/client/proc/start_vote,
+	/client/proc/hide_motion_tracker_feedback,
 	/client/proc/reload_jobwhitelist, //ChompADD
 	/client/proc/reload_alienwhitelist //ChompADD
 	)
@@ -186,7 +187,7 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
-	/datum/admins/proc/spawn_mail,	// CHOMPStation Add
+	/datum/admins/proc/spawn_mail,
 	/client/proc/cmd_admin_droppod_spawn,
 	/client/proc/respawn_character,
 	/client/proc/spawn_character_mob,  //VOREStation Add,
@@ -586,6 +587,7 @@ var/list/admin_verbs_event_manager = list(
 	/client/proc/ReleaseVirus,
 	/client/proc/add_hidden_area,
 	/client/proc/remove_hidden_area,
+	/client/proc/hide_motion_tracker_feedback,
 	/datum/admins/proc/quick_nif, //CHOMPStation Add,
 	/datum/admins/proc/quick_authentic_nif, //CHOMPStation add
 	/client/proc/reload_jobwhitelist, //ChompADD

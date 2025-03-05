@@ -516,7 +516,7 @@
 //
 // Clearly super important. Obviously.
 //
-/mob/living/proc/lick(mob/living/tasted in living_mobs_in_view(1, TRUE)) //CHOMPEdit
+/mob/living/proc/lick(mob/living/tasted in living_mobs_in_view(1, TRUE))
 	set name = "Lick"
 	set category = "IC.Game"
 	set desc = "Lick someone nearby!"
@@ -616,7 +616,7 @@
 			s.undo_prey_takeover(TRUE)
 			return
 		var/obj/belly/B = loc
-		var/confirm = tgui_alert(src, "Please feel free to press use this button at any time you are uncomfortable and in a belly. Consent is important.", "Confirmation", list("Okay", "Cancel")) //CHOMPedit
+		var/confirm = tgui_alert(src, "Please feel free to use this button at any time you are uncomfortable and in a belly. Consent is important.", "Confirmation", list("Okay", "Cancel"))
 		if(confirm != "Okay" || loc != B)
 			return
 		//Actual escaping
@@ -946,10 +946,8 @@
 //CHOMPEdit End
 
 /mob/living/proc/feed_grabbed_to_self_falling_nom(var/mob/living/user, var/mob/living/prey)
-	// CHOMPAdd Start
 	if(user.is_incorporeal())
 		return FALSE
-	// CHOMPAdd End
 	var/belly = user.vore_selected
 	return perform_the_nom(user, prey, user, belly, delay = 1) //1/10th of a second is probably fine.
 
@@ -957,6 +955,10 @@
 	set name = "Glow (Toggle)"
 	set category = "Abilities.General"
 	set desc = "Toggle your glowing on/off!"
+
+	if(stat || paralysis || weakened || stunned || world.time < last_special)
+		to_chat(src, span_warning("You can't do that in your current state."))
+		return
 
 	//I don't really see a point to any sort of checking here.
 	//If they're passed out, the light won't help them. Same with buckled. Really, I think it's fine to do this whenever.
@@ -988,6 +990,10 @@
 	set name = "Eat Trash"
 	set category = "Abilities.Vore"
 	set desc = "Consume held garbage."
+
+	if(stat || paralysis || weakened || stunned || world.time < last_special)
+		to_chat(src, span_warning("You can't do that in your current state."))
+		return
 
 	if(!vore_selected)
 		to_chat(src,span_warning("You either don't have a belly selected, or don't have a belly!"))
