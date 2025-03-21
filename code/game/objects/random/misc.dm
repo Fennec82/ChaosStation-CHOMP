@@ -270,6 +270,7 @@
 				prob(1);/obj/item/beartrap,
 				prob(1);/obj/item/handcuffs,
 				prob(1);/obj/item/handcuffs/legcuffs,
+				prob(1);/obj/item/lockpick,
 				prob(2);/obj/item/reagent_containers/syringe/drugs,
 				prob(1);/obj/item/reagent_containers/syringe/steroid)
 
@@ -655,12 +656,16 @@
 	icon_state = "rup"
 
 /obj/random/coin/item_to_spawn()
-	return pick(prob(5);/obj/item/coin/silver,
+	return pick(prob(7);/obj/item/coin/copper,
+				prob(5);/obj/item/coin/silver,
+				prob(5);/obj/item/coin/steel,
 				prob(3);/obj/item/coin/iron,
 				prob(4);/obj/item/coin/gold,
+				prob(3);/obj/item/coin/titanium,
 				prob(3);/obj/item/coin/phoron,
 				prob(1);/obj/item/coin/uranium,
 				prob(2);/obj/item/coin/platinum,
+				prob(2);/obj/item/coin/lead,
 				prob(1);/obj/item/coin/diamond)
 
 //VOREStation Add Start

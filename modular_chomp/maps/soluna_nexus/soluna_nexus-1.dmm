@@ -2422,9 +2422,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/airlock/angled_bay/standard/glass/atmos{
 	dir = 4;
 	name = "Escape Pod 5";
@@ -2886,9 +2883,6 @@
 	id_tag = "escape_pod_1_berth_hatch";
 	req_access = null;
 	frequency = 1380
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -5921,17 +5915,14 @@
 	pixel_x = -3
 	},
 /obj/item/stack/marker_beacon/ten{
-	icon_state = "markerrandom";
 	pixel_y = 3;
 	pixel_x = -6
 	},
 /obj/item/stack/marker_beacon/ten{
-	icon_state = "markerrandom";
 	pixel_y = 6;
 	pixel_x = -6
 	},
 /obj/item/stack/marker_beacon/ten{
-	icon_state = "markerrandom";
 	pixel_y = 9;
 	pixel_x = -6
 	},
@@ -13801,9 +13792,6 @@
 /obj/effect/floor_decal/industrial/arrows,
 /obj/effect/floor_decal/industrial/arrows{
 	dir = 1
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -24723,9 +24711,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/airlock/angled_bay/standard/glass/atmos{
 	dir = 4;
 	name = "Escape Pod 7";
@@ -27688,7 +27673,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/PA_Chamber)
 "hCr" = (
-/obj/item/clothing/head/helmet/space/vox/civ/chef,
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/tiled/white{
 	nitrogen = 101.3;
@@ -31661,9 +31645,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/blast/regular/open{
 	layer = 3.5;
 	id = "For Lockdown";
@@ -34535,7 +34516,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/radio/intercom/department/security{
 	dir = 4;
-	icon_override = "secintercom";
 	pixel_x = 22
 	},
 /obj/effect/floor_decal/borderfloorblack{
@@ -34835,9 +34815,6 @@
 /obj/effect/floor_decal/industrial/arrows,
 /obj/effect/floor_decal/industrial/arrows{
 	dir = 1
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -41745,9 +41722,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/airlock/angled_bay/standard/glass/atmos{
 	dir = 4;
 	name = "Escape Pod 4";
@@ -46050,9 +46024,7 @@
 /obj/effect/floor_decal/industrial/arrows/yellow{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/arrows/yellow{
-	dir = 3
-	},
+/obj/effect/floor_decal/industrial/arrows/yellow,
 /obj/machinery/door/firedoor/glass,
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/tiled/techmaint,
@@ -49097,9 +49069,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/airlock/angled_bay/standard/glass/atmos{
 	dir = 4;
 	name = "Escape Pod 2";
@@ -49180,9 +49149,6 @@
 /obj/effect/floor_decal/industrial/arrows,
 /obj/effect/floor_decal/industrial/arrows{
 	dir = 1
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -51881,9 +51847,6 @@
 /obj/effect/floor_decal/industrial/arrows,
 /obj/effect/floor_decal/industrial/arrows{
 	dir = 1
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -54983,9 +54946,6 @@
 /obj/effect/floor_decal/industrial/arrows,
 /obj/effect/floor_decal/industrial/arrows{
 	dir = 1
-	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
 	},
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
@@ -62639,9 +62599,6 @@
 /obj/machinery/atmospheric_field_generator/perma/underdoors{
 	color = "Yellow"
 	},
-/obj/machinery/atmospheric_field_generator/perma/underdoors{
-	color = "Yellow"
-	},
 /obj/machinery/door/airlock/angled_bay/standard/glass/atmos{
 	dir = 4;
 	name = "Escape Pod 8";
@@ -62842,14 +62799,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/quartermaster/Supply_Ship_Bay)
-"ucW" = (
-/obj/item/clothing/suit/space/vox/civ/chef,
-/turf/simulated/floor/plating{
-	nitrogen = 101.3;
-	oxygen = 0;
-	name = "Nitrogen plating"
-	},
-/area/maintenance/ab_Kitchen)
 "udg" = (
 /obj/machinery/door/firedoor/border_only,
 /obj/effect/floor_decal/industrial/arrows/yellow,
@@ -66692,9 +66641,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/harbor/Ship_Bay3)
@@ -111678,7 +111624,7 @@ qTI
 lLo
 rBj
 pmy
-ucW
+mGQ
 mGQ
 fpP
 ggN

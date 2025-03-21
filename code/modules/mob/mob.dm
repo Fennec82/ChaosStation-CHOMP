@@ -39,6 +39,8 @@
 	vore_selected = null // from code/modules/vore/eating/mob_vr
 	focus = null
 
+	motiontracker_unsubscribe(TRUE) // Force unsubscribe
+
 	if(mind)
 		if(mind.current == src)
 			mind.current = null
@@ -248,37 +250,6 @@
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
 		return TRUE
-/* CHOMPEdit - Moved to modular_chomp/modules/point/point.dm
-/mob/verb/pointed(atom/A as mob|obj|turf in view())
-	set name = "Point To"
-	set category = "Object"
-
-	if(!src || !isturf(loc) || !(A in view(loc)))
-		return 0
-	if(istype(A, /obj/effect/decal/point))
-		return 0
-
-	var/turf/tile = get_turf(A)
-	if (!tile)
-		return 0
-
-	var/turf/our_tile = get_turf(src)
-	var/obj/visual = new /obj/effect/decal/point(our_tile)
-	visual.invisibility = invisibility
-	visual.plane = ABOVE_PLANE
-	visual.layer = FLY_LAYER
-
-	animate(visual,
-		pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x,
-		pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y,
-		time = 1.7,
-		easing = EASE_OUT)
-
-	QDEL_IN(visual, 2 SECONDS) //Better qdel
-
-	face_atom(A)
-	return 1
-*/
 
 /mob/proc/ret_grab(list/L, flag)
 	return
@@ -483,19 +454,13 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC.Resources"
-	// CHOMPedit Start - Better Changelog
-	//src << browse('html/changelog.html', "window=changes;size=675x650")
-	//return
 
-	// CHOMPAdd Start
 	if(!GLOB.changelog_tgui)
 		GLOB.changelog_tgui = new /datum/changelog()
 	GLOB.changelog_tgui.tgui_interact(usr)
 
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
-		SScharacter_setup.queue_preferences_save(prefs)
-	// CHOMPAdd End
+	if(prefs?.read_preference(/datum/preference/text/lastchangelog) != GLOB.changelog_hash)
+		prefs.write_preference_by_type(/datum/preference/text/lastchangelog, GLOB.changelog_hash)
 
 /mob/verb/observe()
 	set name = "Observe"
@@ -1339,3 +1304,8 @@ GLOBAL_LIST_EMPTY_TYPED(living_players_by_zlevel, /list)
 /mob/proc/grab_ghost(force)
 	if(mind)
 		return mind.grab_ghost(force = force)
+
+/mob/is_incorporeal()
+	if(incorporeal_move)
+		return 1
+	return ..()

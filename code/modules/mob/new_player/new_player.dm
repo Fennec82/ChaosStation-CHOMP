@@ -111,12 +111,10 @@
 		else
 			output += "<p><b><a href='byond://?src=\ref[src];open_station_news=1'>Show [using_map.station_name] News<br>(NEW!)</A></b></p>"
 
-	//ChompEDIT start: Show Changelog
-	if(client?.prefs?.lastchangelog == changelog_hash)
+	if(read_preference(/datum/preference/text/lastchangelog) == GLOB.changelog_hash)
 		output += "<p><a href='byond://?src=\ref[src];open_changelog=1'>Show Changelog</A><br><i>No Changes</i></p>"
 	else
 		output += "<p><b><a href='byond://?src=\ref[src];open_changelog=1'>Show Changelog</A><br>(NEW!)</b></p>"
-	//ChompEDIT End
 
 	output += "</div>"
 
@@ -186,6 +184,9 @@
 		new_player_panel_proc()
 
 	if(href_list["observe"])
+		if(!SSticker || SSticker.current_state == GAME_STATE_INIT)
+			to_chat(src, span_warning("The game is still setting up, please try again later."))
+			return 0
 		if(tgui_alert(src,"Are you sure you wish to observe? If you do, make sure to not use any knowledge gained from observing if you decide to join later.","Observe Round?",list("Yes","No")) == "Yes")
 			if(!client)	return 1
 
@@ -194,6 +195,7 @@
 			client.prefs.dress_preview_mob(mannequin)
 			var/mob/observer/dead/observer = new(mannequin)
 			observer.moveToNullspace() //Let's not stay in our doomed mannequin
+			qdel(mannequin) //We're not used anymore, so goodbye!
 
 			spawning = 1
 			if(client.media)
@@ -357,13 +359,10 @@
 		else
 			client.feedback_form = new(client)
 
-	//ChompEDIT START
 	if(href_list["open_changelog"])
-		client.prefs.lastchangelog = changelog_hash
-		SScharacter_setup.queue_preferences_save(client.prefs)
+		write_preference_directly(/datum/preference/text/lastchangelog, GLOB.changelog_hash)
 		client.changes()
 		return
-	//ChompEDIT END
 
 /mob/new_player/proc/handle_server_news()
 	if(!client)

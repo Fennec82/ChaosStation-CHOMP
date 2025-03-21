@@ -20,6 +20,8 @@ import { byondMessages } from './timers';
 
 type ByondOpen = {
   channel: Channel;
+  minimumWidth: number;
+  minimumHeight: number;
 };
 
 type ByondProps = {
@@ -51,7 +53,7 @@ export function TguiSay() {
     keyof typeof RADIO_PREFIXES | null
   >(null);
   const [size, setSize] = useState(WindowSize.Small);
-  const [maxLength, setMaxLength] = useState(1024);
+  const [maxLength, setMaxLength] = useState(4096);
   const [minimumHeight, setMinimumHeight] = useState(WindowSize.Small);
   const [minimumWidth, setMinimumWidth] = useState(WindowSize.Width);
   const [lightMode, setLightMode] = useState(false);
@@ -117,14 +119,21 @@ export function TguiSay() {
     const iterator = channelIterator.current;
     const prefix = currentPrefix ?? '';
 
-    if (value?.length && value.length < maxLength) {
-      chatHistory.current.add(value);
-      Byond.sendMessage('entry', {
-        channel: iterator.current(),
-        entry: iterator.isSay() ? prefix + value : value,
-      });
+    if (value?.length) {
+      if (value.length < maxLength) {
+        chatHistory.current.add(value);
+        Byond.sendMessage('entry', {
+          channel: iterator.current(),
+          entry: iterator.isSay() ? prefix + value : value,
+        });
+      } else {
+        Byond.sendMessage('lenwarn', {
+          length: value.length,
+          maxlength: maxLength,
+        });
+        return;
+      }
     }
-
     handleClose();
   }
 
@@ -197,7 +206,7 @@ export function TguiSay() {
     if (event.getModifierState('AltGraph')) return;
 
     switch (event.key) {
-      case 'u': // replace with tgui core 1.8.x
+      case 'u':
         if (event.ctrlKey || event.metaKey) {
           event.preventDefault();
           const { value, selectionStart, selectionEnd } = event.currentTarget;
@@ -210,7 +219,7 @@ export function TguiSay() {
           event.currentTarget.selectionEnd = selectionEnd + 2;
         }
         break;
-      case 'i': // replace with tgui core 1.8.x
+      case 'i':
         if (event.ctrlKey || event.metaKey) {
           event.preventDefault();
           const { value, selectionStart, selectionEnd } = event.currentTarget;
@@ -223,7 +232,7 @@ export function TguiSay() {
           event.currentTarget.selectionEnd = selectionEnd + 2;
         }
         break;
-      case 'b': // replace with tgui core 1.8.x
+      case 'b':
         if (event.ctrlKey || event.metaKey) {
           event.preventDefault();
           const { value, selectionStart, selectionEnd } = event.currentTarget;
@@ -280,8 +289,8 @@ export function TguiSay() {
   function handleOpen(data: ByondOpen): void {
     setTimeout(() => {
       innerRef.current?.focus();
-      windowSet(WindowSize.Width, WindowSize.Small);
-      setSize(WindowSize.Width);
+      setSize(minimumHeight);
+      windowSet(minimumWidth, minimumHeight);
     }, 1);
 
     const { channel } = data;
@@ -332,7 +341,7 @@ export function TguiSay() {
     } else {
       newSize = WindowSize.Small;
     }
-    newSize = clamp(newSize, minimumHeight * 20 + 10, WindowSize.Max);
+    newSize = clamp(newSize, minimumHeight, WindowSize.Max);
 
     if (size !== newSize) {
       setSize(newSize);
@@ -363,16 +372,24 @@ export function TguiSay() {
           {buttonContent}
         </button>
         <textarea
+          spellCheck
           autoCorrect="off"
           className={`textarea textarea-${theme}`}
           maxLength={maxLength}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           ref={innerRef}
-          spellCheck={false}
           rows={ROWS[size] || 1}
           value={value}
         />
+        <button
+          key="escape"
+          className={`button button-${theme}`}
+          onClick={handleClose}
+          type="submit"
+        >
+          X
+        </button>
       </div>
     </>
   );
