@@ -1238,4 +1238,3 @@
     desc = ""
     icon_state = "pipears"
 //    ckeys_allowed = list("phoaly")
-//CHOMPRemove END

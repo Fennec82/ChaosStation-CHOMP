@@ -1717,8 +1717,7 @@
 	name = "tigress tail (Holly)"
 	desc = ""
 	icon_state = "tigresstail"
-	ckeys_allowed = list("hoodoo")
-// CHOMPRemove End
+//	ckeys_allowed = list("hoodoo")
 
 /datum/sprite_accessory/tail/longtail/longflufftail
 	name = "Long fluffy tail"
