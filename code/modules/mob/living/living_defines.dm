@@ -107,3 +107,12 @@
 									)
 
 	var/touch_reaction_flags
+
+	var/virtual_reality_mob = FALSE // gross boolean for keeping VR mobs in VR
+
+	var/mob/living/tf_form // Shapeshifter shenanigans
+	var/tf_form_ckey
+
+	var/ooc_notes_favs = null
+	var/ooc_notes_maybes = null
+	var/ooc_notes_style = FALSE
