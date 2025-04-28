@@ -1806,8 +1806,7 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "stripedtail_colorable_w"
 
-/* // Exclusive Tails // CHOMPRemove start
-/datum/sprite_accessory/tail/peacocktail_red //this is ckey locked for now, but prettiebyrd wants these tails to be unlocked at a later date
+/datum/sprite_accessory/tail/peacocktail_red //this is ckey locked for now, but prettiebyrd wants these tails to be unlocked at a later date //Chaosstation edit - everything unlocked
 	name = "Peacock tail (vwag)"
 	desc = ""
 	icon = 'icons/mob/human_races/sprite_accessories/tails.dmi'
