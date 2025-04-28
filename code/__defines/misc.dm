@@ -5,6 +5,7 @@
 #define TRANSITIONEDGE 1 // Distance from edge to move to another z-level.
 
 // Invisibility constants. These should only be used for TRUE invisibility, AKA nothing living players touch
+#define INVISIBILITY_NONE                  0
 #define INVISIBILITY_LIGHTING             20
 #define INVISIBILITY_LEVEL_ONE            35
 #define INVISIBILITY_LEVEL_TWO            45
@@ -21,6 +22,7 @@
 #define SEE_INVISIBLE_OBSERVER            61
 
 #define SEE_INVISIBLE_MINIMUM 5
+#define INVISIBILITY_BADMIN 99 // Used for objects that badmins should see
 #define INVISIBILITY_MAXIMUM 100
 #define INVISIBILITY_ABSTRACT 101 //only used for abstract objects, things that are not really there.
 
@@ -80,8 +82,7 @@
 #define WAIT_FINISH  4
 #define DO_AUTOPILOT 5
 
-// Setting this much higher than 1024 could allow spammers to DOS the server easily.
-#define MAX_MESSAGE_LEN       4096 //CHOMPStation Edit - This is what it means to go even further byond
+#define MAX_MESSAGE_LEN       4096
 #define MAX_PAPER_MESSAGE_LEN 6144
 #define MAX_BOOK_MESSAGE_LEN  24576
 #define MAX_RECORD_LENGTH	  24576
@@ -446,9 +447,9 @@ GLOBAL_LIST_EMPTY(##LIST_NAME);\
 #define VOLUME_CHANNEL_INSTRUMENTS "Instruments"
 #define VOLUME_CHANNEL_WEATHER "Weather"
 #define VOLUME_CHANNEL_SPECIES_SOUNDS "Species Sounds (Verbal Injury Feedback)"
-#define VOLUME_CHANNEL_HUD_WARNINGS "SS13 HUD (Clientside-only sounds)"
+#define VOLUME_CHANNEL_HUD_WARNINGS "SS13 HUD (Clientside-only sounds)" //NYI //CHOMPStation Note: Implemented on Chomp
 #define VOLUME_CHANNEL_DEATH_SOUNDS "Death Sounds"
-#define VOLUME_CHANNEL_INJURY_SOUNDS "Mob Injury Sounds (Non-Verbal Feedback)"
+#define VOLUME_CHANNEL_INJURY_SOUNDS "Mob Injury Sounds (Non-Verbal Feedback)" //NYI //CHOMPStation Note: Implemented on Chomp
 #define VOLUME_CHANNEL_MACHINERY "Machinery Noises"
 #define VOLUME_CHANNEL_MACHINERY_IDLE "Machinery Idle Noises"
 
